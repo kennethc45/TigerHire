@@ -1,0 +1,23 @@
+@* home Template File *@
+@(profileList: Seq[ProfileItem])
+
+@rnavbar("Home")
+
+@main("home") {
+    @for(profile <- profileList) {
+        <div class="info-container">
+            <h3 class="text-heading"> @profile.name (@profile.pronouns)</h3>
+            <div class="text-info">
+                <strong>Bio:</strong> @profile.description
+            </div>
+            <div class="text-info">
+                <strong>Education:</strong> @profile.university
+            </div>
+            <div class="text-info">
+                <strong>Email:</strong> @profile.email
+            </div>
+            <br>      
+        </div>
+    }
+}
+

@@ -1,0 +1,32 @@
+@(job: JobItem)
+
+@main("Job Information") {
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("stylesheets/main.css")">
+    <div class="info-container">
+        <h4 class="text-heading">Job Information</h4>
+        <div class="text-info">
+            <strong>Job Title:</strong> @job.name
+        </div>
+        <div class="text-info">
+            <strong>Company:</strong> @job.cId
+        </div>
+        <div class="text-info">
+            <strong>Location:</strong> @job.location
+        </div>
+        <div class="text-info">
+            <strong>Remote Type:</strong> @job.remote
+        </div>
+        <div class="text-info">
+            <strong>Estimated Salary:</strong> @job.salary
+        </div>
+        <div class="text-info">
+            <strong>Job Description:</strong> @job.description
+        </div>
+        <br>
+        <a href = "@routes.TigerHire.applicationPage(job.id)">
+        <button>
+            Apply
+          </button>
+        </a>
+    </div>
+}

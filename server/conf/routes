@@ -1,0 +1,59 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+
+GET        /                             controllers.TigerHire.index
+GET        /login                        controllers.TigerHire.login
+GET        /logout                       controllers.TigerHire.logout
+GET        /recruiterLogin              controllers.TigerHire.recruiterLogin
+
+GET       /rApplication                 controllers.TigerHire.rApplication
+
+GET       /profileList                  controllers.TigerHire.profileList
+
+
+
+# GET        /validateGet1                 controllers.TigerHire.validateLoginGet(username,password)
+GET        /newUser                      controllers.TigerHire.newUser
+
++nocsrf
+POST       /validateApplicantPost                controllers.TigerHire.validateApplicantPost
++nocsrf
+POST       /createUser                   controllers.TigerHire.createUser
++nocsrf     
+POST        /validateRecruiterPost      controllers.TigerHire.validateRecruiterPost
+
+GET        /profilee                     controllers.TigerHire.profilee
+GET        /rprofile                     controllers.TigerHire.rprofile
+# GET        /home                         controllers.TigerHire.home
+
+GET        /jobPostList                  controllers.TigerHire.jobPostList
+# GET        /rjobPostList                  controllers.TigerHire.rjobPostList
+
+# POST       /updateProfile                controllers.TigerHire.updateProfile
+# GET        /favorites                    controllers.TigerHire.favorites
+GET       /search                       controllers.TigerHire.searchJobTitle
+
+GET        /job/:id                         controllers.TigerHire.job(id: Int)
+GET        /apply/:id                        controllers.TigerHire.applicationPage(id: Int)
+
+GET        /viewCompany/:cId                  controllers.TigerHire.viewCompany(cId: Int)
++nocsrf
+POST       /submitApplication            controllers.TigerHire.submitApplication
+
++nocsrf
+POST      /submitJob                      controllers.TigerHire.submitJob
+
+GET        /createJobPage                    controllers.TigerHire.createJobPage
+
+# POST       /submitJobPosting             controllers.TigerHire.submitJobPosting
+
+ GET        /inbox                        controllers.TigerHire.inbox
+  GET        /rinbox                        controllers.TigerHire.rinbox
++nocsrf
+POST       /sendInvite                  controllers.TigerHire.sendInvite
+
+# Prefix must match `play.assets.urlPrefix`
+GET        /assets/*file                 controllers.Assets.at(file)
+GET        /versionedAssets/*file        controllers.Assets.versioned(path="/public", file: Asset)

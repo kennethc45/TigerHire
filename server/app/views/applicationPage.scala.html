@@ -1,0 +1,48 @@
+@(job: JobItem)
+
+@main("Job Application") {
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("stylesheets/job-styles.css")">
+    <div class="info-container">
+        <h4 class="text-heading">Job Application - @job.name</h4>
+        <div class="text-info">
+            <strong>Job Title:</strong> @job.name
+        </div>
+        <div class="text-info">
+            <strong>Company:</strong> @job.cId
+        </div>
+        <div class="text-info">
+            <strong>Location:</strong> @job.location
+        </div>
+        <div class="text-info">
+            <strong>Remote Type:</strong> @job.remote
+        </div>
+
+        <h4 class="text-heading">Job Application Form</h4>
+        <form method="post" action="@routes.TigerHire.submitApplication">
+            Enter your applicant ID: <input type="number" name="aId" required></input>
+            <input type="hidden" value="@job.id" name="jId" required></input>
+
+            <div class="form-group">
+                <label for="experience">Please enter your relevant experience:</label>
+                <textarea name="experience" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="question1">@job.q1</label>
+                <textarea name="answer1" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="question2">@job.q2</label>
+                <textarea name="answer2" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="question3">@job.q3</label>
+                <textarea name="answer3" rows="4" required></textarea>
+            </div>
+
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+}

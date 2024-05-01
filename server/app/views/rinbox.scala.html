@@ -1,0 +1,24 @@
+@(username: String, applicantList: Seq[ApplicantInfo])
+
+@rnavbar("Inbox")
+
+@main("Inbox") {
+
+  <h2>Welcome to your company's jobs, @username!</h2>
+
+  <h4 class="text-heading">Job Application Form</h4>
+        <form method="post" action="@routes.TigerHire.sendInvite">
+            Who would you like to send the application to: 
+            <select name="aId" required>
+                @for(applicant <- applicantList) {
+                    <option value="@applicant.aId">@applicant.name</option>
+                }
+            </select>
+            Enter the job ID: <input type="number" name="jId" required></input>
+            
+
+            <input type="submit"></input>
+        </form> 
+
+
+}

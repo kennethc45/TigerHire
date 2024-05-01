@@ -1,0 +1,29 @@
+@(appList: Seq[ApplItem])
+
+@rnavbar("Inbox")
+
+@main("Applications"){
+
+    @for(app <- appList){
+        <div class="info-container">
+            <div class="text-info">
+                Applicant Id: @app.aId
+            </div>
+            <div class="text-info">
+                Job Id: @app.jId
+            </div>
+            <div class="text-info">
+                Answer 1: @app.answer1
+            </div>
+            <div class="text-info">
+                Answer 2: @app.answer2
+            </div>
+            <div class="text-info">
+                Answer 3: @app.answer3
+            </div>
+            <div class="text-info">
+                Experience: @app.experience
+            </div>
+        </div>
+    }
+}

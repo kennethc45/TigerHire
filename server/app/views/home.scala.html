@@ -1,0 +1,39 @@
+@* home Template File *@
+@(jobList: Seq[JobItem])
+
+@navbar("Home")
+
+@main("home") {
+    <div class = "search-box">
+        <h1>Job Search</h1>
+        <div class="search-bar">
+            <form action="@routes.TigerHire.searchJobTitle" method="get">
+                <input type="text" name="search" placeholder="Search...">
+                <input type="submit" value="Search">
+            </form>
+        </div>
+    </div>
+    @for(job <- jobList){
+       <div class="info-container">
+            <div class="text-info">
+                @job.hours
+            </div>
+           <div class="text-info">
+               <a href = "@routes.TigerHire.job(job.id)"><h2>@job.name</h2></a>
+           </div>    
+   
+           <div class="text-info">
+            <a href = "@routes.TigerHire.viewCompany(job.cId.getOrElse(-1))">Go to company page</a>
+           </div>
+           <div class="text-info">
+            @job.location
+           </div>
+           <div class="text-info">
+            @job.remote
+           </div>
+   
+           </div>
+       </div>
+   }
+
+}

@@ -1,0 +1,55 @@
+@()
+
+@rnavbar("hi")
+
+@main("Create Job Posting") {
+    <h3>Create a New Job Posting</h3>
+    
+    <form method="post" action="@routes.TigerHire.submitJob">
+        <label for="name">Job Title:</label>
+        <input type="text" name="name" placeholder="Job Title" required>
+
+        <label for="cId">Company ID:</label>
+        <input type="text" name="cId" placeholder="Company ID" required>
+        <br>
+
+        <label for="location">Location:</label>
+        <input type="text" name="location" placeholder="Location" required>
+        <br>
+
+        <label for="remoteType">Remote Type:</label>
+        <select name="remote" required>
+            <option value="In-Person">In-Person</option>
+            <option value="Remote">Remote</option>
+            <option value="Hybrid">Hybrid</option>
+        </select>
+        <br>
+
+        <label for="salary">Salary:</label>
+        <input type="text" name="salary" placeholder="Salary" required>
+        <br>
+
+        <label for="hours">Hours:</label>
+        <input type="text" name="hours" placeholder="Hours" required>
+        <br>
+
+        <h4>Custom Questions</h4>
+        <div id="questionsContainer">
+            <label for="question1">Question 1:</label>
+            <input type="text" name="question1" placeholder="Question 1" required>
+            <br>
+            <label for="question2">Question 2:</label>
+            <input type="text" name="question2" placeholder="Question 2" required>
+            <br>
+            <label for="question3">Question 3:</label>
+            <input type="text" name="question3" placeholder="Question 3" required>
+        </div>
+        <br>
+        <label for="description">Discription:</label>
+        <input type="text" name="description" placeholder="Description" required>
+        <br>
+        <input type="submit"></input>
+    </form>
+    
+    <script src="@routes.Assets.versioned("javascript/submitJob.js")"></script>
+}

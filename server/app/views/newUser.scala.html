@@ -1,0 +1,14 @@
+@* newUser Template File *@
+
+
+@main("Create") {
+ <form method="post" action="@routes.TigerHire.createUser">
+        
+        <h3> Create User</h3>
+        Username: <input type="text" name = "username" id = "username-create"></input>
+        <br>
+        Password: <input type="password" name = "password" id = "password-create"></input>
+        <br>
+        <input type ="submit"></input>
+    </form>   
+}

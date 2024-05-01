@@ -1,0 +1,21 @@
+@* login Template File *@
+@(loginForm: Form[LoginData])(implicit request: MessagesRequestHeader, flash: Flash)
+
+@main("Login") {
+    <h2>Login</h2>
+
+    <form method="post" action="@routes.TigerHire.validateRecruiterPost">
+        @helper.CSRF.formField 
+        <h3>Login with POST</h3>
+        <br>
+        Username: <input type="text" name="username" id="username-login"></input>
+        <br>
+        Password: <input type="password" name="password" id="password-login"></input>
+        <br>
+        <input type="submit"></input>
+    </form>
+
+    <a href = "@routes.TigerHire.login">
+        Go back to applicant log in?
+    </a>
+}

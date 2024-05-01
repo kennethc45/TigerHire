@@ -1,0 +1,26 @@
+@* login Template File *@
+@(loginForm: Form[LoginData])(implicit request: MessagesRequestHeader, flash: Flash)
+
+@main("Login") {
+
+    <form method="post" action="@routes.TigerHire.validateApplicantPost">
+        <h3>Welcome to TigerHire!</h3>
+        <br>
+        Username: <input type="text" name="username" id="username-login"></input>
+        <br>
+        Password: <input type="password" name="password" id="password-login"></input>
+        <br>
+        <input type="submit"></input>
+    </form>
+
+    <form method="get" action="@routes.TigerHire.newUser">
+        @helper.CSRF.formField 
+        <h3>Create New User</h3>
+        <input type="submit" value = "Create User"></input>
+    </form>
+    <br>
+    <a href = "@routes.TigerHire.recruiterLogin">
+        Need to log in as a recruiter?
+    </a>
+
+}

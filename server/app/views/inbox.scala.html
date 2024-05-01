@@ -1,0 +1,35 @@
+@(username: String, jobList: Seq[JobItem])
+
+@navbar("Inbox")
+
+@main("Inbox") {
+
+  <h2>Welcome to your inbox, @username!</h2>
+<h1>Here are the Job applications that have been sent to you:</h1>
+  @for(job <- jobList){
+   
+    <div class="info-container">
+        
+        <div class="text-info">
+            <a href = "@routes.TigerHire.job(job.id)"><h1>@job.name</h1></a>
+            
+  
+        </div>    
+
+        <div class="text-info">
+         <a href = "@routes.TigerHire.viewCompany(job.cId.getOrElse(-1))">@job.id</a>
+        </div>
+        <div class="text-info">
+         @job.location
+        </div>
+        <div class="text-info">
+         @job.remote
+        </div>
+        <div class="text-info">
+         Salary: @job.salary
+        </div>
+
+        </div>
+    </div>
+}
+}
